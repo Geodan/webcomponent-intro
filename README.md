@@ -10,7 +10,7 @@
     npm install -g polymer-cli
 
     # get this repository from git:
-    git clone https://github.com/Geodan/webcomponents-intro
+    git clone https://github.com/Geodan/webcomponent-intro
     cd webcomponents-intro
 
     # install dependencies (lit-element, lit-html):
