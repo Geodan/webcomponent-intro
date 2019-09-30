@@ -24,8 +24,12 @@ class MyApp extends LitElement {
         <p>App HTML (shell):</p>
         <simple-element></simple-element>
         ${this._renderFullElement()}
-        <p><a href="index.html">plain HTML</a> <a href="native.html">native compontent example</a></p>        
-        <button @click="${(e)=>this._toggleInDom()}">${this.addToDom?'remove from':'add to'} DOM</button>
+        <p><button @click="${(e)=>this._toggleInDom()}">${this.addToDom?'remove from':'add to'} DOM</button></p>
+        <p><a href="index.html">plain HTML</a><br>
+        shell example<br>
+        <a href="native.html">native compontent example</a><br>
+        <a href="lithtml.html">lit-html</a>
+        </p>
         `
     }
     _toggleInDom() {
