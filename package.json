@@ -1,0 +1,16 @@
+{
+  "name": "webcomponent",
+  "version": "1.0.0",
+  "description": "some component templates and usage examples",
+  "main": "index.html",
+  "scripts": {
+    "start": "polymer serve",
+    "build": "polymer build --name es5-bundled --base-path /",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "lit-element": "^2.2.1"
+  }
+}

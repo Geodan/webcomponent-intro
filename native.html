@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Native Webcomponent</title>
+    <!-- Polyfills only needed for MS-Edge. -->
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
+    <style>
+        medium-element {display: inline-block; contain: content; border: 1px solid black}
+    </style>
+    <!-- template : html and css-->
+    <template id="medium-element-template">
+        <style>
+            :host {display: inline-block; contain: content; border: 1px solid green}
+            .bool {color:blue}
+            .string {color: red}
+            .number {color: green}
+        </style>
+        <div class="bool">true</div>
+        <div class="string">click me</div>
+        <div class="number">0</div>
+    </template>
+      
+    <!-- script -->
+    <script>
+        class MediumElement extends HTMLElement {
+            constructor() {
+                super();
+            }
+            static get observedAttributes() {
+                return ['number'];
+            }
+            connectedCallback() {
+                // init the component
+                this.attachShadow({ mode: "open" });
+                let template = document.querySelector('#medium-element-template');
+                let templateHtml = template.content.cloneNode(true);
+                this.shadowRoot.appendChild(templateHtml);
+                console.log('connected');
+            }
+            attributeChangedCallback(name, oldValue, newValue) {
+                if (this.shadowRoot) {
+                    if (name === 'number') {
+                        this.shadowRoot.querySelector('.number').textContent = newValue;
+                        this.shadowRoot.querySelector('.string').textContent = 'clicked!'
+                    }
+                }
+                console.log(`attributeChangedCallback name: ${name}, oldValue: ${oldValue}, newValue: ${newValue}`)
+            }
+        }
+     
+        // init the element
+        customElements.define("medium-element", MediumElement);
+    </script>
+    <script>
+        function clicked(element) {
+            let number = parseInt(element.getAttribute('number'));
+            if (isNaN(number)) {
+                number = 0;
+            }
+            element.setAttribute('number', (number + 1).toString());
+        }
+    </script>
+
+</head>
+<body>
+    <p>Native component (no framework)</p>
+    <medium-element number="0" onclick="clicked(this)"></medium-element>
+    <p><a href="index.html">plain html</a>, <a href="shell.html">shell example</a></p>
+</body>
+</html>

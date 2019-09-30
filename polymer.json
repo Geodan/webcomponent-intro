@@ -1,0 +1,34 @@
+{
+    "entrypoint": "index.html",
+    "shell": "my-app.js",
+    "sources": [
+        "simple-element.js",
+        "full-element.js"
+    ],
+    "extraDependencies": [
+      "shell.html",
+      "native.html",
+      "lithtml.html"
+    ],
+    "builds": [      
+      {
+        "name": "es5-bundled",
+        "js": {
+          "compile": "es5",
+          "minify": true,
+          "transformModulesToAmd": true
+        },
+        "css": {
+          "minify": true
+        },
+        "html": {
+          "minify": true
+        },
+        "bundle": true,
+        "addServiceWorker": false
+      }
+    ],
+    "moduleResolution": "node",
+    "npm": true
+  }
+  

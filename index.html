@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LitElement template</title>
+    <!-- Polyfills only needed for MS-Edge. -->
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
+    <script type="module">
+        import "./simple-element.js";
+        import "./full-element.js";
+    </script>
+</head>
+<body>
+    <p>Plain HTML:</p>
+    <simple-element></simple-element>
+    <full-element bool="true" string="click me!" number="0" array="[&quot;one&quot;,&quot;two&quot;,&quot;three&quot;]" object="{&quot;name&quot;:&quot;value&quot;}"></full-element>
+    <p><a href="shell.html">shell example</a>, <a href="native.html">native compontent example</a></p>
+</body>
+</html>

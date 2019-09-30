@@ -1,0 +1,16 @@
+<div id="output1"></div>
+<div id="output2"></div>
+
+<script type="module">
+import {html, render} from 'lit-html';
+import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
+let myString = "<h1>Hallo</h1>"
+let s = html`
+    <div class="myclass">${myString}</div>
+`
+render(s, document.querySelector('#output1'));
+s = html`
+<div class="myclass">${unsafeHTML(myString)}</div>
+`
+render(s, document.querySelector('#output2'));
+</script>
