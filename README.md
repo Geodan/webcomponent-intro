@@ -38,19 +38,23 @@ The native component example shows component:
     * basic native component, no framework code used
 
 
-
 ## build polymer components for production 
+
 To use the LitElement components with a standard static webserver, you have to build them:
 
-    npm run-script build
-    # the component build output is in directory build/es5modules
+```
+$ npm run-script build
+# the component build output is in directory /build/es5-bundled
+```
 
 you can now import these components into standard webserver html:
 
-    <script type="module">
-       import './build/es5modules/custom-component.js';
-    </script>
-    <custom-component></custom-component>
+```
+<script type="module">
+    import './build/es5-bundled/simple-element.js';
+ </script>
+ <simple-element></simple-element>
+```
 
 ## Some very basic webcomponents
 * simple-element (lit-element)
