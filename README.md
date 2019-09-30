@@ -6,7 +6,7 @@
 * optional: [visual studio code](https://code.visualstudio.com/download)
 
 ## Install
-    # install the polymer cli:
+    # install the polymer cli: (in some environments this requires `--unsafe-perm` to be added)
     npm install -g polymer-cli
 
     # get this repository from git:
